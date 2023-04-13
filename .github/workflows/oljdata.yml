@@ -1,0 +1,33 @@
+name: Data Processor
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  python_job:
+    runs-on: ubuntu-latest
+    steps:
+    
+    - name: Cache APT Packages
+      uses: actions/cache@v3
+      with:
+        path: /usr/bin
+        key: none-keys
+        restore-keys: none-keys
+        
+    - name: List current dir....
+      run: ls -la "/home/runner/work/"
+    
+    - name: checkout repo content
+      uses: actions/checkout@3 # checkout the repository content
+
+    - name: setup python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11' # install the python version needed
+
+    - name: Install python packages....
+      run: |
+          python -m pip install --upgrade pip
+          sudo apt install clang
+          pip3 install bs4 requests lxml Scrapy
