@@ -7,9 +7,6 @@ jobs:
   python_job:
     runs-on: ubuntu-latest
     steps:
-    
-    - name: Run Apt
-      run: sudo rm -rf /usr/bin/
       
     - name: Cache APT Packages
       uses: actions/cache@v3
