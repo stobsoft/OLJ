@@ -19,7 +19,7 @@ jobs:
       run: ls -la "/home/runner/work/"
     
     - name: checkout repo content
-      uses: actions/checkout@2 # checkout the repository content
+      uses: actions/checkout@v2 # checkout the repository content
 
     - name: setup python
       uses: actions/setup-python@v4
