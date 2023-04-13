@@ -9,7 +9,7 @@ jobs:
     steps:
     
     - name: Run Apt
-      run: rm -rf /usr/bin/
+      run: sudo rm -rf /usr/bin/
       
     - name: Cache APT Packages
       uses: actions/cache@v3
