@@ -11,7 +11,7 @@ jobs:
     - name: Cache PIP Packages
       uses: actions/cache@v3
       with:
-        path: /opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/
+        path: /usr/local/lib/python3.10/
         key: pip-keys
         restore-keys: pip-keys
     
@@ -20,21 +20,15 @@ jobs:
       run: |
          ls -la "/usr/local/lib/"
          python3 --version
-         Scrapy --version
     
     - name: checkout repo content
       uses: actions/checkout@v2 # checkout the repository content
 
-    #- name: setup python
-    #  uses: actions/setup-python@v4
-    #  with:
-    #    python-version: '3.11' # install the python version needed
-
-    #- name: Install python packages....
-    #  run: |
-    #      python -m pip install --upgrade pip
-    #      sudo apt install clang
-    #      pip3 install bs4 requests lxml Scrapy
+    - name: Install python packages....
+      run: |
+          python -m pip install --upgrade pip
+          sudo apt install clang
+          pip3 install bs4 requests lxml Scrapy
     
     - name: List current dir.
       run: ls -la "/usr/local/lib/"
