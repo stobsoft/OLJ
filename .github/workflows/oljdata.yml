@@ -16,7 +16,7 @@ jobs:
         restore-keys: pip-keys
     
         
-    - name: List current dir....
+    - name: List current dir.
       run: ls -la "/usr/local/lib/"
     
     - name: checkout repo content
@@ -32,3 +32,6 @@ jobs:
           python -m pip install --upgrade pip
           sudo apt install clang
           pip3 install bs4 requests lxml Scrapy
+    
+    - name: List current dir.
+      run: ls -la "/usr/local/lib/"
