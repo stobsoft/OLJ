@@ -20,7 +20,7 @@ jobs:
       run: |
          ls -la "/usr/local/lib/"
          python3 --version
-         scrapy --version
+         Scrapy --version
     
     - name: checkout repo content
       uses: actions/checkout@v2 # checkout the repository content
