@@ -1,0 +1,38 @@
+name: Data Updater
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  python_job_updater:
+    runs-on: ubuntu-latest
+    steps:
+    
+    - name: Cache PIP Packages
+      uses: actions/cache@v3
+      with:
+        path: /usr/local/lib/python3.10/
+        key: pip-keys
+        restore-keys: pip-keys
+    
+        
+    - name: List current dir.
+      run: |
+         ls -la "/usr/local/lib/"
+         python3 --version
+    
+    - name: checkout repo content
+      uses: actions/checkout@v2 # checkout the repository content
+
+    - name: Install python packages....
+      run: |
+          python -m pip install --upgrade pip
+          sudo apt install clang
+          pip3 install bs4 requests lxml Scrapy gspread
+    
+    - name: Run General Updater
+      env:
+        OLJ_UPDATER_SCRIPT: ${{secrets.OLJ_UPDATER_SCRIPT}}
+        GCLOUD_GSHEET_SERVICE_KEY: ${{secrets.GCLOUD_GSHEET_SERVICE_KEY}}
+      run: bash dev/comprehensive_update.sh
+    
