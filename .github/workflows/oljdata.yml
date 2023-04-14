@@ -31,4 +31,6 @@ jobs:
           pip3 install bs4 requests lxml Scrapy
     
     - name: Run
+      env:
+        OLJ_SCRIPT: ${{secrets.OLJ_SCRIPT}}
       run: bash dev/start.sh
