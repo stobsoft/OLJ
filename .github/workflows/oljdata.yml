@@ -17,21 +17,24 @@ jobs:
     
         
     - name: List current dir.
-      run: ls -la "/usr/local/lib/"
+      run: |
+         ls -la "/usr/local/lib/"
+         python3 --version
+         scrapy --version
     
     - name: checkout repo content
       uses: actions/checkout@v2 # checkout the repository content
 
-    - name: setup python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11' # install the python version needed
+    #- name: setup python
+    #  uses: actions/setup-python@v4
+    #  with:
+    #    python-version: '3.11' # install the python version needed
 
-    - name: Install python packages....
-      run: |
-          python -m pip install --upgrade pip
-          sudo apt install clang
-          pip3 install bs4 requests lxml Scrapy
+    #- name: Install python packages....
+    #  run: |
+    #      python -m pip install --upgrade pip
+    #      sudo apt install clang
+    #      pip3 install bs4 requests lxml Scrapy
     
     - name: List current dir.
       run: ls -la "/usr/local/lib/"
