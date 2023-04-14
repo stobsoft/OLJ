@@ -11,7 +11,7 @@ jobs:
     - name: Cache PIP Packages
       uses: actions/cache@v3
       with:
-        path: /usr/local/lib/python3.11/
+        path: /usr/local/lib/python3.10/
         key: pip-keys
         restore-keys: pip-keys
     
