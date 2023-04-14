@@ -8,16 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-    #- name: Cache APT Packages
-    #  uses: actions/cache@v3
-    #  with:
-    #    path: /usr/bin/
-    #    key: none-keys
-    #    restore-keys: none-keys
+    - name: Cache PIP Packages
+      uses: actions/cache@v3
+      with:
+        path: /usr/local/lib/
+        key: pip-keys
+        restore-keys: pip-keys
     
         
     - name: List current dir....
-      run: ls -la "/home/runner/work/"
+      run: ls -la "/usr/local/lib/"
     
     - name: checkout repo content
       uses: actions/checkout@v2 # checkout the repository content
