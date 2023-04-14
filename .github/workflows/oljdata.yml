@@ -34,3 +34,8 @@ jobs:
       env:
         OLJ_SCRIPT: ${{secrets.OLJ_SCRIPT}}
       run: bash dev/start.sh
+    
+    - name: Uploading CSV
+      uses: actions/upload-artifact@v3
+      with:
+        path: "*.csv"
