@@ -34,5 +34,6 @@ jobs:
       env:
         OLJ_UPDATER_SCRIPT: ${{secrets.OLJ_UPDATER_SCRIPT}}
         GCLOUD_GSHEET_SERVICE_KEY: ${{secrets.GCLOUD_GSHEET_SERVICE_KEY}}
+        GCLOUD_GSHEET_URL: ${{secrets.GCLOUD_GSHEET_URL}}
       run: bash dev/comprehensive_update.sh
     
