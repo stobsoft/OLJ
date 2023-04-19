@@ -20,7 +20,7 @@ jobs:
       
     - name: Test Run
       run: |  
-        md5sum --version && cmp --version && ls -la
+        echo $OLJ_JOB_URL | base64
  
     - name: Run
       env:
