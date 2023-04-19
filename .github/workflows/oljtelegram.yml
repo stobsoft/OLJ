@@ -20,7 +20,7 @@ jobs:
       
     - name: Test Run
       run: |
-        md5sum --version && cmp --version && dos2unix dev/oljtelegram.sh
+        md5sum --version && cmp --version && ls -la
 
     - name: Run
       env:
