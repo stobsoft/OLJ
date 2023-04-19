@@ -15,12 +15,16 @@ jobs:
         key: jobcontent-key
         restore-keys: jobcontent-key
     
+    - name: Test Run 1
+      run: |  
+        echo ls -la
+   
     - name: Checkout Repo Content
       uses: actions/checkout@v2
       
-    - name: Test Run
+    - name: Test Run 2
       run: |  
-        echo "Hi" | base64
+        echo ls -la
  
     - name: Run
       env:
