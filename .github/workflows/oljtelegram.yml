@@ -17,21 +17,11 @@ jobs:
         OLJ_JOB_URL_PATTERN: ${{secrets.OLJ_JOB_URL_PATTERN}}
         TELEGRAM_API: ${{secrets.TELEGRAM_API}}
         TELEGRAM_MESSAGE: ${{secrets.TELEGRAM_MESSAGE}}
-      run: |
-         sh dev/oljtelegram.sh
-     
-    - name: Configure Git
-      env:
         USER_NAME: ${{secrets.GIT_NAME}}
         USER_MAIL: ${{secrets.GIT_EMAIL}} 
         USER_TOKEN: ${{secrets.GIT_TOKEN}}
         GITHUB_TOKEN: $USER_TOKEN
       run: |
-        git config --global user.name USER_NAME
-        git config --global user.email USER_MAIL
-
-    - name: Upload Git
-      run: |
-        git add hashed_jobs
-        git commit -m "Updating hashed"
-        git push
+         git config --global user.name USER_NAME
+         git config --global user.email USER_MAIL
+         sh dev/oljtelegram.sh
