@@ -29,4 +29,4 @@ jobs:
         TELEGRAM_API: ${{secrets.TELEGRAM_API}}
         TELEGRAM_MESSAGE: ${{secrets.TELEGRAM_MESSAGE}}
       run: |
-         bash dev/oljtelegram.sh
+         sh dev/oljtelegram.sh
