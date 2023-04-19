@@ -12,9 +12,9 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ./hashed_jobs/
-        key: ${{ runner.os }}-hashed_jobs-${{ hashFiles('**/hashed.txt') }}
+        key: ${{ runner.os }}-hashed_jobs-${{ hashFiles('hashed.txt') }}
         restore-keys: |
-          ${{ runner.os }}-hashed_jobs-
+          ${{ runner.os }}-hashed_jobs-${{ hashFiles('hashed.txt') }}
     
     - name: Test Run 1
       run: |  
