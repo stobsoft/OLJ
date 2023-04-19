@@ -1,0 +1,28 @@
+name: Data Telegram Updater
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  telegram_job:
+    runs-on: ubuntu-latest
+    steps:
+    
+    - name: Cache Hashed Jobs
+      uses: actions/cache@v3
+      with:
+        path: hashed_jobs
+        key: jobcontent-key
+        restore-keys: jobcontent-key
+    
+    - name: Checkout Repo Content
+      uses: actions/checkout@v2
+
+    - name: Run
+      env:
+        OLJ_JOB_URL: ${{secrets.OLJ_JOB_URL}}
+        OLJ_JOB_URL_PATTERN: ${{secrets.OLJ_JOB_URL_PATTERN}}
+        TELEGRAM_API: ${{secrets.TELEGRAM_API}}
+        TELEGRAM_MESSAGE: ${{secrets.TELEGRAM_MESSAGE}}
+      run: |
+         bash dev/oljtelegram.sh
