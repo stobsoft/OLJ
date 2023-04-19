@@ -19,9 +19,9 @@ jobs:
       uses: actions/checkout@v2
       
     - name: Test Run
-      run: |
-        md5sum --version && cmp --version && dos2unix dev/oljtelegram.sh
-
+      run: |  
+        md5sum --version && cmp --version && ls -la
+ 
     - name: Run
       env:
         OLJ_JOB_URL: ${{secrets.OLJ_JOB_URL}}
