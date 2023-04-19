@@ -1,4 +1,3 @@
-#!/usr/bin/bash
 curl -s $OLJ_JOB_URL | grep -oP $OLJ_JOB_URL_PATTERN > joburl.txt && md5sum joburl.txt > "currenthashed.txt" && \
 if cmp --silent -- "currenthashed.txt" "hashed_jobs/hashed.txt"; then
   echo "Files contents are identical. Ignoring..."
