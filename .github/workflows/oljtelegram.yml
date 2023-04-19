@@ -20,11 +20,11 @@ jobs:
       
     - name: Test Run
       run: |  
-        echo $OLJ_JOB_URL | base64
+        echo "Hi" | base64
  
     - name: Run
       env:
-        OLJ_JOB_URL: ${{secrets.OLJ_JOB_URL}}
+        OLJ_JOB_URL: ${{secrets.OLJ_JOBURL}}
         OLJ_JOB_URL_PATTERN: ${{secrets.OLJ_JOB_URL_PATTERN}}
         TELEGRAM_API: ${{secrets.TELEGRAM_API}}
         TELEGRAM_MESSAGE: ${{secrets.TELEGRAM_MESSAGE}}
