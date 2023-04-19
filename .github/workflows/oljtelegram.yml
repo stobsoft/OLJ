@@ -34,4 +34,4 @@ jobs:
       run: |
         git add hashed_jobs
         git commit -m "Updating hashed"
-        git push origin HEAD:main --force
+        git push
