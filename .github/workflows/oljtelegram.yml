@@ -6,26 +6,10 @@ on:
 jobs:
   telegram_job:
     runs-on: ubuntu-latest
-    steps:
-    
-    - name: Cache Hashed Jobs
-      uses: actions/cache@v3
-      with:
-        path: ./hashed_jobs/
-        key: ${{ runner.os }}-hashed_jobs-${{ hashFiles('hashed.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-hashed_jobs-${{ hashFiles('hashed.txt') }}
-    
-    - name: Test Run 1
-      run: |  
-        echo ls -la
+    steps:    
    
     - name: Checkout Repo Content
       uses: actions/checkout@v2
-      
-    - name: Test Run 2
-      run: |  
-        echo ls -la
  
     - name: Run
       env:
@@ -35,3 +19,19 @@ jobs:
         TELEGRAM_MESSAGE: ${{secrets.TELEGRAM_MESSAGE}}
       run: |
          sh dev/oljtelegram.sh
+     
+    - name: Configure Git
+      env:
+        USER_NAME: ${{secrets.GIT_NAME}}
+        USER_MAIL: ${{secrets.GIT_EMAIL}} 
+        USER_TOKEN: ${{secrets.GIT_TOKEN}}
+        GITHUB_TOKEN: $USER_TOKEN
+      run: |
+        git config --global user.name USER_NAME
+        git config --global user.email USER_MAIL
+
+    - name: Upload Git
+      run: |
+        git add *.txt
+        git commit -m "Updating hashed"
+        git push origin HEAD:main --force
